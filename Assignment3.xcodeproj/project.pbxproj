@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A269FA7C29CCFFFF000BEEC4 /* TVShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269FA7B29CCFFFF000BEEC4 /* TVShowModel.swift */; };
+		A269FA7E29CD0060000BEEC4 /* TVShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269FA7D29CD0060000BEEC4 /* TVShowViewModel.swift */; };
 		ACF5E04029BE957F00DD981A /* Assignment3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5E03F29BE957F00DD981A /* Assignment3App.swift */; };
 		ACF5E04229BE957F00DD981A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5E04129BE957F00DD981A /* MainView.swift */; };
 		ACF5E04429BE958000DD981A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF5E04329BE958000DD981A /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A269FA7B29CCFFFF000BEEC4 /* TVShowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowModel.swift; sourceTree = "<group>"; };
+		A269FA7D29CD0060000BEEC4 /* TVShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewModel.swift; sourceTree = "<group>"; };
 		ACF5E03C29BE957F00DD981A /* Assignment3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF5E03F29BE957F00DD981A /* Assignment3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment3App.swift; sourceTree = "<group>"; };
 		ACF5E04129BE957F00DD981A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				ACF5E03F29BE957F00DD981A /* Assignment3App.swift */,
+				A269FA7D29CD0060000BEEC4 /* TVShowViewModel.swift */,
 				ACF5E04129BE957F00DD981A /* MainView.swift */,
+				A269FA7B29CCFFFF000BEEC4 /* TVShowModel.swift */,
 				ACF5E04329BE958000DD981A /* Assets.xcassets */,
 				ACF5E04529BE958000DD981A /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACF5E04229BE957F00DD981A /* MainView.swift in Sources */,
+				A269FA7E29CD0060000BEEC4 /* TVShowViewModel.swift in Sources */,
+				A269FA7C29CCFFFF000BEEC4 /* TVShowModel.swift in Sources */,
 				ACF5E04029BE957F00DD981A /* Assignment3App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

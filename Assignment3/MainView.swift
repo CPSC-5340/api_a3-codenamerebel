@@ -7,16 +7,17 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct MainView: View
+{
+	@ObservedObject	var TVShowVM = TVShowViewModel()
+	
     var body: some View
 	{
-		
 		NavigationStack
 		{
 			List
 			{
-				Text("name")
-				Text("Summary")
+				Text(TVShowVM.TVShowResults.n)
 				Text("Type")
 				Text("Language")
 				
@@ -24,6 +25,12 @@ struct MainView: View {
 				{
 					//  View for the Generes will go here
 				}
+			}.task
+			{await
+				TVShowVM.fetchData()
+				
+				print(TVShowVM.TVShowResults)
+				
 			}
 		}
     }
