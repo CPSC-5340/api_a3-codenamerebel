@@ -17,13 +17,16 @@ struct MainView: View
 		{
 			List
 			{
-				Text(TVShowVM.TVShowResults.n)
-				Text("Type")
-				Text("Language")
+				Text(TVShowVM.TVShowResults.name)
+				Text(TVShowVM.TVShowResults.type)
+				Text(TVShowVM.TVShowResults.language)
 				
 				NavigationLink("Genres")
 				{
-					//  View for the Generes will go here
+					List(TVShowVM.TVShowResults.genres, id: \.self)
+					{ genre in
+						Text(genre)
+					}
 				}
 			}.task
 			{await
