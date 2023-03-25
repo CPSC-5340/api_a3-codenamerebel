@@ -13,10 +13,23 @@ struct MainView: View
 	
     var body: some View
 	{
+
 		NavigationStack
         {
-            
-                List
+
+            List
+            {
+                Section
+                {
+                    HStack
+                    {
+                        Text("IMDB ID: ")
+                        //  TextField goes here
+                        
+                    }
+                }
+                
+                Section
                 {
                     Text(TVShowVM.TVShowResults.name)
                     Text(TVShowVM.TVShowResults.type)
@@ -29,18 +42,48 @@ struct MainView: View
                         { genre in
                             Text(genre)
                         }
-                        
-                        
+    
                     }
+                    
+                    NavigationLink("Schedule")
+                    {
+                        List
+                        {
+                            if(TVShowVM.TVShowResults.schedule?.time == "")
+                            {
+                                Text("No time listed")
+                            }
+                            else
+                            {
+                                Text(TVShowVM.TVShowResults.schedule?.time ?? "No time listed")
+                            }
+                            
+                            NavigationLink("Days")
+                            {
+                                List
+                                 {
+                                     ForEach(TVShowVM.TVShowResults.schedule?.days ?? [], id: \.self)
+                                    { day in
+                                        Text(day)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    
                 }.task
-                {await
+                    {await
                     TVShowVM.fetchData()
-                    
                     print(TVShowVM.TVShowResults)
-                    
-                }
+                    }
+                
             }
+        }
+        
+ 
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
