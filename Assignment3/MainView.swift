@@ -11,6 +11,7 @@ struct MainView: View
 {
 	@ObservedObject	var TVShowVM = TVShowViewModel()
 	
+    @State var IMDB_ID = ""
     var body: some View
 	{
 
@@ -25,7 +26,9 @@ struct MainView: View
                     HStack
                     {
                         Text("IMDB ID: ")
-                        //  TextField goes here
+                        TextField(IMDB_ID, text: $IMDB_ID)
+                            .textFieldStyle(.roundedBorder)
+                            .multilineTextAlignment(.trailing)
                         
                     }
                 }
@@ -80,11 +83,21 @@ struct MainView: View
                     print(TVShowVM.TVShowResults)
                     }
                 
+                //  Test data to send new feeds to parse
                 Section(header: Text("IMDB ID's of Interest to test with"))
                 {
-                    Text("Clone Wars:   tt0458290")
-                    Text("Rebels:   tt2930604")
-                    Text("The Bad Batch:    tt12708542")
+                    Text("Clone Wars:   tt0458290").onTapGesture
+                    {
+                            IMDB_ID = "tt0458290"
+                    }
+                    Text("Rebels:   tt2930604").onTapGesture
+                    {
+                            IMDB_ID = "tt2930604"
+                    }
+                    Text("The Bad Batch:    tt12708542").onTapGesture
+                    {
+                            IMDB_ID = "tt12708542"
+                    }
                 }
             }
         }
