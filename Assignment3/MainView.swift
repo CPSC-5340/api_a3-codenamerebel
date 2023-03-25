@@ -19,6 +19,7 @@ struct MainView: View
 
             List
             {
+                //  Input data
                 Section
                 {
                     HStack
@@ -29,6 +30,7 @@ struct MainView: View
                     }
                 }
                 
+                //  Data from the feed
                 Section
                 {
                     Text(TVShowVM.TVShowResults.name)
@@ -78,6 +80,12 @@ struct MainView: View
                     print(TVShowVM.TVShowResults)
                     }
                 
+                Section(header: Text("IMDB ID's of Interest to test with"))
+                {
+                    Text("Clone Wars:   tt0458290")
+                    Text("Rebels:   tt2930604")
+                    Text("The Bad Batch:    tt12708542")
+                }
             }
         }
         
