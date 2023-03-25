@@ -83,6 +83,19 @@ struct MainView: View
                     print(TVShowVM.TVShowResults)
                     }
                 
+                
+                Section
+                {
+                    HStack
+                    {
+                        Spacer()
+                        Text("Update Feed").bold()
+                            
+                        Spacer()
+                    }.listRowBackground(Color.green)
+                }
+                
+                
                 //  Test data to send new feeds to parse
                 Section(header: Text("IMDB ID's of Interest to test with"))
                 {
