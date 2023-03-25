@@ -14,4 +14,5 @@ struct TVShowModel : Codable
 	let type: String
 	let language: String
 	let genres : [String]
+    let schedule: ScheduleModel?
 }

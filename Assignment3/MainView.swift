@@ -14,28 +14,32 @@ struct MainView: View
     var body: some View
 	{
 		NavigationStack
-		{
-			List
-			{
-				Text(TVShowVM.TVShowResults.name)
-				Text(TVShowVM.TVShowResults.type)
-				Text(TVShowVM.TVShowResults.language)
-				
-				NavigationLink("Genres")
-				{
-					List(TVShowVM.TVShowResults.genres, id: \.self)
-					{ genre in
-						Text(genre)
-					}
-				}
-			}.task
-			{await
-				TVShowVM.fetchData()
-				
-				print(TVShowVM.TVShowResults)
-				
-			}
-		}
+        {
+            
+                List
+                {
+                    Text(TVShowVM.TVShowResults.name)
+                    Text(TVShowVM.TVShowResults.type)
+                    Text(TVShowVM.TVShowResults.language)
+                    
+                    NavigationLink("Genres")
+                    {
+                        
+                        List(TVShowVM.TVShowResults.genres, id: \.self)
+                        { genre in
+                            Text(genre)
+                        }
+                        
+                        
+                    }
+                }.task
+                {await
+                    TVShowVM.fetchData()
+                    
+                    print(TVShowVM.TVShowResults)
+                    
+                }
+            }
     }
 }
 

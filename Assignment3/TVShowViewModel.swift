@@ -13,7 +13,7 @@ class TVShowViewModel : ObservableObject
 	let url = "https://api.tvmaze.com/lookup/shows?imdb=tt12708542"
 //	@Published var	TVShowResults = TVShowModel(name: "Test", type: "", language: "", genres: [])
 	
-	@Published var	TVShowResults = TVShowModel(name: "Test", type: "", language: "", genres: [])
+	@Published var	TVShowResults = TVShowModel(name: "Test", type: "", language: "", genres: [], schedule: nil)
 	
 	@MainActor
 	func fetchData() async
