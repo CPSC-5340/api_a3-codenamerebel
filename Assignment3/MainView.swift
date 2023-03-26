@@ -90,9 +90,21 @@ struct MainView: View
                     {
                         Spacer()
                         Text("Update Feed").bold()
-                            
                         Spacer()
-                    }.listRowBackground(Color.green)
+                    }.onTapGesture
+                    {
+                        TVShowVM.setURL(IMDBid: IMDB_ID)
+                        Task
+                        {
+                            await TVShowVM.fetchData()
+                        }
+                        print(TVShowVM.TVShowResults)
+                    }
+
+                    .listRowBackground(Color.green)
+                    
+                        
+                    
                 }
                 
                 
