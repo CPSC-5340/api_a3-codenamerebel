@@ -125,8 +125,10 @@ struct MainView: View
                     }
                 }
             }
-        }
-        
+		}.alert(isPresented: $TVShowVM.hasError, error: TVShowVM.error)
+			{
+				Text("Danger Danger")
+			}
  
     }
     

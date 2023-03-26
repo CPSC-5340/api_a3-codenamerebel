@@ -12,9 +12,12 @@ class TVShowViewModel : ObservableObject
 	
 	var url = "https://api.tvmaze.com/lookup/shows?imdb=tt0458290"
     
-    var baseURL = "https://api.tvmaze.com/lookup/shows?imdb="
+    let baseURL = "https://api.tvmaze.com/lookup/shows?imdb="
 
 	@Published var	TVShowResults = TVShowModel(name: "Test", type: "", language: "", genres: [], schedule: nil)
+	
+	@Published var hasError = false
+	@Published var error : TVShowModelError?
 	
 	@MainActor
 	func fetchData() async
@@ -24,9 +27,11 @@ class TVShowViewModel : ObservableObject
 		{
 			do {
 				let (data, _) = try await URLSession.shared.data(from: url)
-				guard let results = try JSONDecoder().decode(TVShowModel?.self, from: data) else {
-
-					
+				guard let results = try JSONDecoder().decode(TVShowModel?.self, from: data) else
+				{
+					self.hasError.toggle()
+					self.error = TVShowModelError.decodeError
+				
 					return
 				}
 				
@@ -36,7 +41,8 @@ class TVShowViewModel : ObservableObject
 			}
 			catch
 			{
-				
+				self.hasError.toggle()
+				self.error = TVShowModelError.customError(error: error)
 			}
 			
 			
@@ -52,3 +58,27 @@ class TVShowViewModel : ObservableObject
     }
     
 }
+
+
+extension TVShowViewModel
+{
+	enum TVShowModelError : LocalizedError
+	{
+		case decodeError
+		case customError(error: Error)
+		
+		var errorDescription: String?
+		{
+			switch self
+			{
+				case .decodeError:
+					return "Decoding Error"
+				case .customError(let error):
+					return error.localizedDescription
+			}
+		}
+		
+	}
+
+}
+
